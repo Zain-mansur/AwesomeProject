@@ -7,10 +7,11 @@ import MainNavigation from "./Route/Nav";
 import { getAllUsers } from "./Src/res/API/api";
 
 
+
 const App = () => {
 
   const [users , setuseres] = useState([]);
-
+  
   return (
       <View style={{flex:1}}>
     <MainNavigation/>

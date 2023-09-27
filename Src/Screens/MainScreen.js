@@ -12,6 +12,7 @@ import { getAllUsers } from '../res/API/api';
 
 const MainScreen = (props) => {
 
+  console.log(props);
   const data = [
     {
       name: 'Zain',
@@ -19,6 +20,7 @@ const MainScreen = (props) => {
       connection: 'Family member',
       bgc1: 'violet',
       bgc2: 'purple',
+      //note:[] save cureent notres in note for each contact
     },
     {
       name: 'Riam',
@@ -64,24 +66,27 @@ const MainScreen = (props) => {
     },
 
   ]
+  // data[0].note.push(0,0,0,0)
+  // console.log(data[0].note);
+  // check to see that the notes in each contact is being rendered/shown
 
   const renderCards = () => {
-    return data.map(cardData => {
-      return <Card name={cardData.name} bd={cardData.bd} bgc2={cardData.bgc2} bgc1={cardData.bgc1} connection={cardData.connection} />
+    return data.map((cardData,i) => {
+      return <Card key={i} name={cardData.name} bd={cardData.bd} bgc2={cardData.bgc2} bgc1={cardData.bgc1} connection={cardData.connection} />
     })
   }
   const [input, setinput] = useState("");
   
   // api example
-  const getAllUsersFromApi = () => {
-    getAllUsers().then(res => {
-      console.log("all users" , res);
-      setuseres(res);
-    })
-  }
-  useEffect(() => {
-    getAllUsersFromApi();
-  }, []);
+  // const getAllUsersFromApi = () => {
+  //   getAllUsers().then(res => {
+  //     console.log("all users" , res);
+  //     setuseres(res);
+  //   })
+  // }
+  // useEffect(() => {
+  //   getAllUsersFromApi();
+  // }, []);
   // end
 
   return (

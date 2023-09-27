@@ -1,3 +1,4 @@
+//wanted to use to make a notepad like backgeound no use for now
 import { useState } from "react";
 import { ImageBackground, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 
