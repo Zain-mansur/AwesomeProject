@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
 import CustomInput from "../Components/customInput";
+import { NavigationContainer, useNavigation } from '@react-navigation/native'
+
 
 const LoginScreen = () => {
+  const navigation = useNavigation();
   const [Username , setUsername] = useState('');
   const [Password , setPassword] = useState('');
 
@@ -15,7 +18,9 @@ const LoginScreen = () => {
     
     <Text style={styles.txt}> password </Text>
 
-    <CustomInput placeholder="Password" Value={Password} setValue={setPassword}/>
+    <CustomInput placeholder="Password" Value={Password} setValue={setPassword} secureTextEntry={true}/>
+
+    <Button title= 'Login'   onPress={()=>navigation.navigate('Home')}/>
 
     </View>
     )
@@ -28,13 +33,11 @@ const styles = StyleSheet.create({
       alignItems: 'center',
 
     },
-    
-    text: {
-        fontSize: 30
-    },
+
     txt: {
       color: 'black'
-    }
+      
+    },
   });
   
   export default LoginScreen;

@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
 import CustomInput from "../Components/customInput";
+import { NavigationContainer, useNavigation } from '@react-navigation/native'
+import { POSTApi } from "../res/API/api";
 
 const RegistryScreen = () =>{
+    const navigation = useNavigation();
     const [Username , setUsername] = useState('');
     const [PhoneNumber , setPhoneNumber] = useState('');
     const [Password , setPassword] = useState('');
@@ -22,6 +25,7 @@ const RegistryScreen = () =>{
     
         <CustomInput placeholder="Password" Value={Password} setValue={setPassword}/>
     
+        <Button title= 'Register'   onPress={()=>navigation.navigate('Login') } />
         </View>
     )
 };
@@ -33,9 +37,6 @@ const styles = StyleSheet.create({
 
     },
     
-    text: {
-        fontSize: 30
-    },
     txt: {
       color: 'black'
     }
