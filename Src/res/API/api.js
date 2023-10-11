@@ -36,3 +36,20 @@ export const POSTApi = async ( method, body) => {
         console.error("fetch Error", error.message);
     });
 }
+
+export const createNewUser = async (body) => {
+    const route = "/createNewUser"
+    const url = domain + route;
+    console.log(body);
+    return await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers: {
+            'Content-Type': 'application/json', 
+        },
+
+    }).then(res => res.json())
+    .catch((error) => {
+        console.error("fetch Error", error.message);
+    });
+}

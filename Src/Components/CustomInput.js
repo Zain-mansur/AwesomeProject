@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, TextInput, View } from "react-native";
-const CustomInput = ({Value, setValue , placeholder , secureTextEntry}) => {
+const CustomInput = ({Value , handelUser, placeholder , secureTextEntry}) => {
+    // console.log(Value);
+    const [value , setValue] = useState(Value);
+
+    console.log(handelUser);
+
+    const onEndEditing =()=>{
+        handelUser.User[placeholder]=value
+        handelUser.setUser({...handelUser.User})
+    }
+
     return (
         <View style= {styles.container}>
             <TextInput 
-            value={Value}
-            onChangeText={setValue }
+            value={value}
+            onChangeText={setValue}
             style={styles.input} 
             placeholder={placeholder}
-            secureTextEntry={secureTextEntry}    
+            secureTextEntry={secureTextEntry}
+            onEndEditing={onEndEditing}
             />
         </View>
     )
